@@ -7,13 +7,13 @@ public class Student {
         list.add(new Person("Aman", 18));
         list.add(new Person("Ankur", 28));
 
-        Collections.sort(list); // sorts by age using compareTo()
+        Collections.sort(list); // sorts by age using compareTo(),but got confused in getting criteria of comparison , moves  to implemented
 
         System.out.println(list);
     }
 }
 
-class Person implements Comparable<Person> {
+class Person implements Comparable<Person> {  //implements Comparable which contains compareto method but without body
     String name;
     int age;
 
@@ -22,12 +22,12 @@ class Person implements Comparable<Person> {
         this.age = age;
     }
 
-    @Override
-    public int compareTo(Person person) {
+    @Override  //overridng that compareto method which don't have body
+    public int compareTo(Person person) {  //declaring out own method with body (overridng)
         if (this.age == person.age)
             return 0;
         else if (this.age < person.age)
-            return -1;
+        return -1;
         else
             return 1;
     }
