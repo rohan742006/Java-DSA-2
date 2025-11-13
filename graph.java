@@ -12,7 +12,7 @@ public class graph {
         }
     }
 
-    static void create_graph(ArrayList<Edge>graph[]){
+    static void create_graph(ArrayList<Edge>graph[]){   //every edge stores its neighbout in graph array
         for(int i=0;i<graph.length;i++){  //for each vertex
             graph[i]=new ArrayList<>();
         }
@@ -47,6 +47,19 @@ public class graph {
         graph[6].add(new Edge(6,5,1));
     }
 
+    public static void dfs(ArrayList<Edge>graph [],int curr, boolean vis[]){
+        //visit
+        System.out.print(curr+" ");
+        vis[curr]=true;
+
+        //neighbour
+        for(int i=0;i<graph[curr].size();i++){
+            Edge e=graph[curr].get(i);
+            if(!vis[e.dest]){  //check neighbour visited or not
+                dfs(graph,e.dest,vis);
+            }
+        }
+    }
     public static void bfs(ArrayList<Edge>graph []){
         Queue<Integer>q=new LinkedList<>();
         boolean vis[]=new boolean[graph.length];
@@ -72,6 +85,7 @@ public class graph {
         int v=7;
         ArrayList<Edge>graph[]=new ArrayList[v];  //null -> empty arraylist
         create_graph(graph);
-        bfs(graph);
+        //bfs(graph);
+        dfs(graph,0,new boolean[v]);
     }
 }
