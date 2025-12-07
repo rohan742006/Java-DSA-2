@@ -12,7 +12,7 @@ public class rock{
                 fmax=arr[i];
             }
             else if(curr>smax && curr!=fmax){
-                smax=arr[i];code -v
+                smax=arr[i];
 
             }
         }
